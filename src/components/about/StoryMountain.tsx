@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 export default function StoryMountain() {
   const ref = useRef<HTMLElement>(null);
@@ -55,15 +55,6 @@ export default function StoryMountain() {
         x: -40,
         opacity: 0,
         delay: 0.4,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 70%" },
-      });
-
-      gsap.from(".mtn-text > p:nth-of-type(4)", {
-        x: -40,
-        opacity: 0,
-        delay: 0.6,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: { trigger: ref.current, start: "top 70%" },

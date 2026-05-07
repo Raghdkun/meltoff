@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import {
   Montserrat,
   Cormorant_Garamond,
-  Inter,
+  Geist,
   Cairo,
   Caveat,
 } from "next/font/google";
@@ -23,7 +23,7 @@ const serif = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
 });
 
-const body = Inter({
+const body = Geist({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -60,9 +60,17 @@ export default function RootLayout({
       className={`${display.variable} ${serif.variable} ${body.variable} ${arabic.variable} ${script.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sand text-ink">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-ink focus:text-sand focus:px-5 focus:py-3 focus:text-xs focus:tracking-[0.32em] focus:uppercase focus:outline-none focus:ring-2 focus:ring-ember"
+        >
+          Skip to content
+        </a>
         <SmoothScroll>
           <Nav />
-          <main className="flex-1">{children}</main>
+          <main id="main" className="flex-1">
+            {children}
+          </main>
           <Footer />
         </SmoothScroll>
       </body>

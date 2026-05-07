@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Internal/generated tooling files not part of app source linting.
+    ".agents/**",
   ]),
 ]);
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 export default function StoryClose() {
   const ref = useRef<HTMLElement>(null);
@@ -30,7 +30,7 @@ export default function StoryClose() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-44 text-center overflow-hidden">
+    <section ref={ref} className="relative py-40 md:py-56 text-center overflow-hidden">
       <div className="mx-auto max-w-4xl px-6">
         <p className="hr-mark mb-8 inline-flex justify-center">
           Final Chapter · The Promise
@@ -50,7 +50,7 @@ export default function StoryClose() {
 
         <Link
           href="/menu"
-          className="close-cta mt-14 inline-flex items-center gap-3 px-10 py-5 rounded-full bg-ink text-sand text-sm tracking-[0.4em] uppercase hover:bg-ember transition-colors"
+          className="close-cta mt-14 inline-flex items-center gap-3 px-10 py-5 rounded-full bg-ink text-sand text-sm tracking-[0.4em] uppercase hover:bg-ember transition-[background-color,transform] duration-200 active:scale-[0.97]"
         >
           Sip &amp; Melt Off →
         </Link>

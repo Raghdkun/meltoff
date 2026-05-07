@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import Cup from "@/components/Cup";
 
 export default function BestCombo() {
@@ -55,12 +54,12 @@ export default function BestCombo() {
             hand, golden flaky paratha in the other. A small ritual that feels
             like a long Sunday.
           </p>
-          <Link
-            href="#"
-            className="mt-10 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-ember text-sand text-sm tracking-[0.32em] uppercase hover:bg-ink transition-colors"
+          <a
+            href="mailto:hello@meltoff.cafe?subject=Karak%20%2B%20Paratha"
+            className="mt-10 inline-flex items-center gap-3 px-8 py-4 rounded-full bg-ember text-sand text-sm tracking-[0.32em] uppercase hover:bg-ink transition-[background-color,transform] duration-200 active:scale-[0.97]"
           >
             Order in store →
-          </Link>
+          </a>
         </div>
 
         <div className="cmb-pair relative flex items-center justify-center gap-6">

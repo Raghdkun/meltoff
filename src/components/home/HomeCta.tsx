@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 export default function HomeCta() {
   const ref = useRef<HTMLElement>(null);
@@ -30,7 +30,7 @@ export default function HomeCta() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-44">
+    <section ref={ref} className="relative py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <p className="hr-mark mb-8 mx-auto justify-center inline-flex">
           The Invitation
@@ -46,10 +46,10 @@ export default function HomeCta() {
         <div className="cta-button mt-12 inline-block">
           <Link
             href="/menu"
-            className="group relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-ink text-sand text-sm tracking-[0.42em] uppercase overflow-hidden"
+            className="group relative inline-flex items-center gap-4 px-10 py-5 rounded-full bg-ink text-sand text-sm tracking-[0.42em] uppercase overflow-hidden transition-transform duration-200 active:scale-[0.97]"
           >
             <span className="relative z-10">Sip &amp; Melt Off</span>
-            <span className="relative z-10 transition-transform group-hover:translate-x-1">
+            <span className="btn-arrow relative z-10 transition-transform group-hover:translate-x-1">
               →
             </span>
             <span className="absolute inset-0 bg-ember scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />

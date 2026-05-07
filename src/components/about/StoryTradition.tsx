@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 export default function StoryTradition() {
   const ref = useRef<HTMLElement>(null);
@@ -83,7 +83,7 @@ export default function StoryTradition() {
           </div>
           {/* Tape / tag */}
           <div className="trad-tag absolute -top-6 -right-6 rotate-12 px-5 py-2 bg-ember text-sand text-xs uppercase tracking-[0.32em] shadow-lg">
-            est. 2024
+            est. 2026
           </div>
         </div>
 

@@ -15,6 +15,20 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     }
     window.scrollTo(0, 0);
 
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) {
+      const refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 100);
+      const onLoad = () => ScrollTrigger.refresh();
+      window.addEventListener("load", onLoad);
+      return () => {
+        clearTimeout(refreshTimer);
+        window.removeEventListener("load", onLoad);
+      };
+    }
+
     const lenis = new Lenis({
       duration: 1.15,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

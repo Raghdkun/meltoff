@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 export default function MountainScene() {
   const ref = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     if (!ref.current) return;
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.from("[data-layer='back']", {
         y: 40,
         opacity: 0,
@@ -37,7 +39,7 @@ export default function MountainScene() {
         ease: "elastic.out(1, 0.6)",
       });
 
-      // Parallax on scroll
+      // Parallax on scroll — only when motion is allowed
       gsap.to("[data-layer='back']", {
         yPercent: -8,
         ease: "none",
@@ -69,7 +71,7 @@ export default function MountainScene() {
         },
       });
       gsap.to("[data-layer='sun']", {
-        y: 60,
+        yPercent: 10,
         scale: 1.1,
         ease: "none",
         scrollTrigger: {
@@ -79,15 +81,16 @@ export default function MountainScene() {
           scrub: true,
         },
       });
-    }, ref);
-    return () => ctx.revert();
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <svg
       ref={ref}
       viewBox="0 0 1440 600"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMax slice"
       className="absolute inset-0 w-full h-full"
       aria-hidden
     >

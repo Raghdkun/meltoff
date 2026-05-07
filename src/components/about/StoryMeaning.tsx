@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
+import SpotlightCard from "@/components/SpotlightCard";
 
 export default function StoryMeaning() {
   const ref = useRef<HTMLElement>(null);
@@ -44,7 +45,11 @@ export default function StoryMeaning() {
         </div>
 
         <div className="m-grid mt-20 grid md:grid-cols-2 gap-6 text-left">
-          <div className="m-side relative p-10 rounded-3xl bg-ink text-sand overflow-hidden ring-warm">
+          <SpotlightCard
+            spotColor="rgba(224, 139, 58, 0.28)"
+            spotSize={520}
+            className="m-side relative p-10 rounded-3xl bg-ink text-sand overflow-hidden ring-warm"
+          >
             <span className="absolute -top-10 -right-6 font-serif text-[14rem] leading-none text-sand/10 select-none">
               M
             </span>
@@ -59,9 +64,13 @@ export default function StoryMeaning() {
             <p className="font-arabic text-right mt-6 text-sand/85 leading-loose">
               إحساس بالذوبان… الراحة… والذوبان في الطعم.
             </p>
-          </div>
+          </SpotlightCard>
 
-          <div className="m-side relative p-10 rounded-3xl bg-ember text-sand overflow-hidden ring-warm">
+          <SpotlightCard
+            spotColor="rgba(244, 234, 214, 0.22)"
+            spotSize={520}
+            className="m-side relative p-10 rounded-3xl bg-ember text-sand overflow-hidden ring-warm"
+          >
             <span className="absolute -top-10 -right-6 font-serif text-[14rem] leading-none text-sand/15 select-none">
               O
             </span>
@@ -76,7 +85,7 @@ export default function StoryMeaning() {
             <p className="font-arabic text-right mt-6 text-sand/90 leading-loose">
               فصل عن التوتر… وخروج من الضغط.
             </p>
-          </div>
+          </SpotlightCard>
         </div>
 
         <p className="mt-16 font-arabic text-2xl md:text-3xl text-ink-soft leading-loose max-w-3xl mx-auto">

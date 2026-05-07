@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:app": "eslint \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "gsap": "^3.15.0",

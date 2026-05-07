@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import SteamCup from "@/components/SteamCup";
 import Link from "next/link";
 
@@ -46,7 +46,7 @@ export default function Signature() {
   return (
     <section
       ref={ref}
-      className="relative py-32 md:py-44 bg-ink text-sand overflow-hidden"
+      className="relative py-36 md:py-52 bg-ink text-sand overflow-hidden"
     >
       {/* Decorative texture */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
@@ -75,7 +75,7 @@ export default function Signature() {
                   </textPath>
                 </text>
                 <text x="100" y="108" textAnchor="middle" fontSize="14" letterSpacing="3" fill="currentColor" fontFamily="Georgia, serif" fontWeight="700">
-                  EST · 2024
+                  EST · 2026
                 </text>
               </svg>
             </div>
@@ -120,9 +120,10 @@ export default function Signature() {
 
           <Link
             href="/menu"
-            className="mt-12 inline-flex items-center gap-3 px-7 py-4 rounded-full bg-ember text-sand text-sm tracking-[0.32em] uppercase hover:bg-sun transition-colors"
+            className="mt-12 inline-flex items-center gap-3 px-7 py-4 rounded-full bg-ember text-sand text-sm tracking-[0.32em] uppercase hover:bg-sun transition-[background-color,transform,box-shadow] duration-200 active:scale-[0.97] shadow-[0_18px_40px_-18px_rgba(192,83,42,0.7)] hover:shadow-[0_22px_48px_-16px_rgba(224,139,58,0.65)]"
           >
-            See the full menu →
+            See the full menu
+            <span className="btn-arrow">→</span>
           </Link>
         </div>
       </div>

@@ -39,11 +39,11 @@ export default function StoryMap() {
       // 1. SVG fades + scales in
       tl.to(svgRef.current, { autoAlpha: 1, scale: 1, ease: "power2.out", duration: 1 }, 0);
 
-      // 2. Pin drops + pulses
+      // 2. Pin reveal + pulses (no y-shift so it stays centered)
       tl.fromTo(
         ".sweida-pin",
-        { y: -50, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 0.4, ease: "bounce.out" },
+        { scale: 0.82, autoAlpha: 0 },
+        { scale: 1, autoAlpha: 1, duration: 0.35, ease: "power2.out", transformOrigin: "center center" },
         1.0
       );
       tl.to(".sweida-pulse", { autoAlpha: 1, duration: 0.2 }, 1.1);
@@ -129,34 +129,40 @@ export default function StoryMap() {
                 filter="url(#mapColor)"
               />
 
-              {/* Pin — center of the As-Suwayda governorate */}
-              <g className="sweida-pin" transform="translate(443 660)">
-                <circle className="sweida-pulse sweida-pulse-ring" r="22" fill="#c0532a" opacity="0.45" />
-                <circle className="sweida-pulse" r="11" fill="#c0532a" />
-                <path
-                  d="M0 -48 C -18 -48 -30 -32 -21 -13 L 0 26 L 21 -13 C 30 -32 18 -48 0 -48 Z"
-                  fill="#c0532a"
-                  stroke="#3a1a0e"
-                  strokeWidth="1.5"
-                />
-                <circle cy="-30" r="8" fill="#f4ead6" />
+              {/* Pin — centered in the map body */}
+              <g className="sweida-pin-anchor" transform="translate(443 516)">
+                <g className="sweida-pin">
+                  <circle className="sweida-pulse sweida-pulse-ring" r="22" fill="#c0532a" opacity="0.45" />
+                  <circle className="sweida-pulse" r="11" fill="#c0532a" />
+                  <path
+                    d="M0 -48 C -18 -48 -30 -32 -21 -13 L 0 26 L 21 -13 C 30 -32 18 -48 0 -48 Z"
+                    fill="#c0532a"
+                    stroke="#3a1a0e"
+                    strokeWidth="1.5"
+                  />
+                  <circle cy="-30" r="8" fill="#f4ead6" />
+                </g>
               </g>
 
               {/* AS-SUWAYDA label */}
               <text
-                x="443" y="560" textAnchor="middle"
+                x="443" y="422" textAnchor="middle"
                 className="sweida-label"
                 fontFamily="var(--font-display), Montserrat"
                 fontSize="19" letterSpacing="7"
-                fill="#3e3f36" fontWeight="700"
+                fill="#2e2f28" fontWeight="700"
+                stroke="#f4ead6" strokeWidth="3"
+                paintOrder="stroke"
               >
                 AS-SUWAYDA
               </text>
               <text
-                x="443" y="595" textAnchor="middle"
+                x="443" y="456" textAnchor="middle"
                 className="sweida-arabic"
                 fontFamily="var(--font-arabic), Cairo"
-                fontSize="23" fill="#c0532a"
+                fontSize="24" fill="#b84e25"
+                stroke="#f4ead6" strokeWidth="2"
+                paintOrder="stroke"
               >
                 السويداء
               </text>

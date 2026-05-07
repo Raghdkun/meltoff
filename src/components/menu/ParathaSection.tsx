@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const parathas = [
   {
@@ -69,14 +70,16 @@ export default function ParathaSection() {
 
         <div className="p-grid grid md:grid-cols-3 gap-6">
           {parathas.map((p) => (
-            <article
+            <SpotlightCard
               key={p.name}
-              className="p-card group relative overflow-hidden rounded-3xl bg-ink text-sand p-10 ring-warm flex flex-col justify-between min-h-[420px] transition-transform hover:-translate-y-1"
+              spotColor="rgba(224, 139, 58, 0.28)"
+              spotSize={460}
+              className="p-card group relative overflow-hidden rounded-3xl bg-ink text-sand p-10 ring-warm flex flex-col justify-between min-h-[420px] transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="text-6xl mb-6 transition-transform group-hover:scale-110 origin-left">
                 {p.icon}
               </div>
-              <div>
+              <div className="relative z-[2]">
                 <p className="font-arabic text-2xl text-sand/80 mb-2">{p.arabic}</p>
                 <h3 className="font-serif text-3xl">{p.name}</h3>
                 <p className="mt-4 text-sand/75 leading-relaxed">{p.body}</p>
@@ -87,7 +90,7 @@ export default function ParathaSection() {
               <span className="absolute top-6 right-6 text-[0.6rem] uppercase tracking-[0.32em] text-sun">
                 Hot
               </span>
-            </article>
+            </SpotlightCard>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import Cup from "@/components/Cup";
+import SpotlightCard from "@/components/SpotlightCard";
 
 type CupVariant = "hot-paper" | "iced-clear" | "kraft";
 
@@ -109,6 +110,7 @@ export default function DrinkShowcase() {
 
   useEffect(() => {
     if (!wrapperRef.current || !trackRef.current) return;
+    const wrapper = wrapperRef.current;
 
     // Skip horizontal scroll on mobile — too cramped. Use vertical stack instead.
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
@@ -121,7 +123,7 @@ export default function DrinkShowcase() {
       // Horizontal scrub driven by the wrapper's scroll progress.
       // The visual "pin" is achieved with CSS sticky on .stage.
       const st = ScrollTrigger.create({
-        trigger: wrapperRef.current,
+        trigger: wrapper,
         start: "top top",
         end: "bottom bottom",
         scrub: 1,
@@ -156,8 +158,8 @@ export default function DrinkShowcase() {
       ScrollTrigger.getAll().forEach((t) => {
         if (
           t.trigger &&
-          wrapperRef.current &&
-          wrapperRef.current.contains(t.trigger)
+          wrapper &&
+          wrapper.contains(t.trigger)
         ) {
           t.kill(true);
         }
@@ -190,8 +192,14 @@ export default function DrinkShowcase() {
         <div className="hidden md:block shrink-0 w-[12vw]" aria-hidden />
 
         {drinks.map((d, i) => (
-          <article
+          <SpotlightCard
             key={d.id}
+            spotColor={
+              d.signature
+                ? "rgba(224, 139, 58, 0.28)"
+                : "rgba(224, 139, 58, 0.18)"
+            }
+            spotSize={560}
             className="drink-card shrink-0 w-full md:w-[80vw] lg:w-[70vw] md:h-[78vh] md:mr-10 grid md:grid-cols-2 gap-6 md:gap-10 items-center px-6 py-10 md:px-14 md:py-0 rounded-3xl bg-cream/80 border border-ink/10 backdrop-blur-sm relative overflow-hidden"
           >
             <span className="absolute top-4 right-6 md:top-6 md:right-8 font-serif text-6xl md:text-9xl text-ink/10 leading-none select-none">
@@ -245,7 +253,7 @@ export default function DrinkShowcase() {
                 ))}
               </ul>
             </div>
-          </article>
+          </SpotlightCard>
         ))}
 
         <div className="hidden md:block shrink-0 w-[12vw]" aria-hidden />

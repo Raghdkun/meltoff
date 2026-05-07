@@ -65,13 +65,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-ember transition-colors duration-200">
-                Reservations
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-ember transition-colors duration-200">
-                Gift Cards
+              <a
+                href="mailto:hello@meltoff.cafe"
+                className="hover:text-ember transition-colors duration-200"
+              >
+                Contact
               </a>
             </li>
           </ul>
@@ -147,13 +145,13 @@ export default function Footer() {
 
         {/* Legal Links */}
         <div className="text-xs text-ink-soft/60 space-x-4 flex justify-end order-3">
-          <a href="#" className="hover:text-ember transition-colors duration-200">
+          <Link href="/privacy" className="hover:text-ember transition-colors duration-200">
             Privacy
-          </a>
+          </Link>
           <span>·</span>
-          <a href="#" className="hover:text-ember transition-colors duration-200">
+          <Link href="/terms" className="hover:text-ember transition-colors duration-200">
             Terms
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

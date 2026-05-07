@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
+import SpotlightCard from "@/components/SpotlightCard";
 
 export default function Philosophy() {
   const ref = useRef<HTMLElement>(null);
@@ -82,8 +83,10 @@ export default function Philosophy() {
 
         <div className="phi-grid mt-20 grid md:grid-cols-2 gap-8">
           {cards.map((c) => (
-            <div
+            <SpotlightCard
               key={c.key}
+              spotColor="rgba(224, 139, 58, 0.20)"
+              spotSize={520}
               className="phi-card relative p-10 md:p-14 rounded-3xl bg-cream/70 border border-ink/10 backdrop-blur-sm ring-warm overflow-hidden"
             >
               <div className="flex items-baseline gap-6">
@@ -103,7 +106,7 @@ export default function Philosophy() {
               >
                 {c.key.charAt(0)}
               </span>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 
